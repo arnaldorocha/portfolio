@@ -11,392 +11,85 @@
   </head>
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-id">
-    <em>ARF</em>
-    <span>//computer engineer student, software engineer</span>
-  </div>
-  <div class="nav-links">
-    <a href="#about">about</a>
-    <a href="#skills">skills</a>
-    <a href="#experience">experience</a>
-    <a href="#projects">projects</a>
-    <a href="#contact">contact</a>
-  </div>
-  <div class="nav-right">BR · UTC-3</div>
-</nav>
-
-<!-- HERO -->
-<!-- HERO -->
-<div id="hero">
-  <h1 class="hero-name">
-    SYSTEMS THAT<br>
-    <span class="stroke">MAKE YOU MONEY</span>
-  </h1>
-
-  <div class="hero-role">
-    Backend Systems · Automation · Data Pipelines
-  </div>
-
-  <p class="hero-desc">
-    I build systems that <strong>automate operations, track revenue, and eliminate manual work</strong>.
-    Focused on helping businesses make faster decisions and increase profit through data.
-  </p>
-
-  <div class="hero-actions">
-    <a href="https://wa.me/5542988698860" target="_blank" class="btn btn-primary">
-      → get a system for your business
-    </a>
-    <a href="#projects" class="btn btn-outline">view case studies</a>
-    <a href="https://github.com/arnaldorocha" target="_blank" class="btn btn-outline">github</a>
-  </div>
-
-  <div class="status">
-    <div class="pulse"></div>
-    available for freelance projects · limited slots
-  </div>
+<div class="top-controls">
+<button class="ctrl-btn" id="langBtn">PT</button>
+<button class="ctrl-btn" id="themeBtn">☀</button>
 </div>
 
- 
-<!-- ABOUT -->
+<nav>
+<div>ARF</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<div id="hero">
+<h1 class="hero-name" id="heroTitle">
+SYSTEMS THAT<br><span class="stroke">MAKE YOU MONEY</span>
+</h1>
+
+<div class="hero-role" id="heroRole">
+Backend Systems · Automation · Data Pipelines
+</div>
+
+<p class="hero-desc" id="heroDesc">
+I build systems that automate operations, track revenue, and eliminate manual work.
+</p>
+
+<div class="hero-actions">
+<a href="https://wa.me/5542988698860" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+<a href="https://github.com/arnaldorocha" target="_blank" rel="noopener" class="btn">GitHub</a>
+</div>
+</div>
+
 <section id="about">
-  <div class="section-wrap">
-    <div class="sec-label reveal">
-      <div class="sec-num">01</div>
-      <h2 class="sec-title">About</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-       <p>
-      I design and build <strong>backend systems that replace manual workflows</strong> and give
-      businesses clear visibility into their data.
-      </p>
-      
-      <p>
-      Built and deployed real systems in production, including:
-      <strong>academic management platforms and marketing data pipelines</strong>.
-      </p>
-      
-      <p>
-      My focus is simple:
-      <strong>turn data into decisions and operations into automation.</strong>
-      </p>
-      </div>
-      
-     <div class="about-meta reveal">
-        <div class="meta-header">// profile.json</div>
-        <div class="meta-row">
-          <div class="meta-key">location</div>
-          <div class="meta-val">São Mateus do Sul, PR — Brazil</div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">email</div>
-          <div class="meta-val"><a href="mailto:arnaldorochafilho@gmail.com">arnaldorochafilho@gmail.com</a></div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">phone</div>
-          <div class="meta-val">+55 42 98869-8860</div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">degree</div>
-          <div class="meta-val">B.Eng. Computer Engineering (2027)</div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">languages</div>
-          <div class="meta-val">Portuguese (native) · English (intermediate)</div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">github</div>
-          <div class="meta-val"><a href="https://github.com/arnaldorocha" target="_blank">github.com/arnaldorocha</a></div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-key">status</div>
-          <div class="meta-val" style="color:var(--green)">● available</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2 id="aboutTitle">About</h2>
+<p id="aboutText">
+I design and build backend systems that replace manual workflows and improve decisions.
+</p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-  <div class="section-wrap">
-    <div class="sec-label reveal">
-      <div class="sec-num">02</div>
-      <h2 class="sec-title">Skills</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="skills-layout">
-      <div class="skill-group reveal">
-        <div class="sg-label">Core Stack</div>
-        <div class="chips">
-          <span class="chip hi">Python</span>
-          <span class="chip hi">Flask</span>
-          <span class="chip hi">FastAPI</span>
-          <span class="chip hi">REST APIs</span>
-          <span class="chip hi">SQL / SQLite</span>
-          <span class="chip hi">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="sg-label">Data & Analytics</div>
-        <div class="chips">
-          <span class="chip cy">Pandas</span>
-          <span class="chip cy">Power BI</span>
-          <span class="chip cy">Meta Ads API</span>
-          <span class="chip cy">Data Pipelines</span>
-          <span class="chip cy">ETL</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="sg-label">Infrastructure & Tools</div>
-        <div class="chips">
-          <span class="chip">Git / GitHub</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Linux</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">HTML / CSS</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <div class="sg-label">Currently Studying</div>
-        <div class="chips">
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">C / C++</span>
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Systems Programming</span>
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Computer Architecture</span>
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Networking (Kurose)</span>
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">VHDL / FPGA</span>
-          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">OSTEP</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2>Skills</h2>
+<p>Python · Flask · FastAPI · PostgreSQL · Power BI · Docker</p>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="sec-label reveal">
-      <div class="sec-num">03</div>
-      <h2 class="sec-title">Experience</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="timeline">
-
-      <div class="tl-item reveal">
-        <div class="tl-left">
-          <div class="tl-period">2023<br>present</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Informatics Instructor</div>
-          <div class="tl-org">Instituto Correggio · São Mateus do Sul, PR</div>
-          <div class="tl-desc">
-            <ul>
-              <li>Designs and delivers technical courses: computing fundamentals, office productivity, programming basics.</li>
-              <li>Built and deployed an <strong style="color:var(--text)">Academic Management System</strong> in production use at the institution — Python, Flask, SQLite.</li>
-              <li>Manages student records, scheduling, and workflows through custom-built internal tooling.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-left">
-          <div class="tl-period">2024</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Production Operator</div>
-          <div class="tl-org">Incepa Roca Brasil · São Mateus do Sul, PR</div>
-          <div class="tl-desc">
-            <ul>
-              <li>Operated hydraulic presses; quality control of ceramic production (thickness, temperature, pressure).</li>
-              <li>Contributed to process automation improvement initiatives.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-left">
-          <div class="tl-period">2013<br>2014</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">IT Technician (Freelance)</div>
-          <div class="tl-org">MEI · São Mateus do Sul, PR</div>
-          <div class="tl-desc">
-            <ul>
-              <li>PC and notebook assembly, repair, and maintenance. On-site network troubleshooting.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
-  <div class="section-wrap">
-    <div class="sec-label reveal">
-      <div class="sec-num">04</div>
-      <h2 class="sec-title">Projects</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="proj-grid reveal">
+<h2>Projects</h2>
 
-     <div class="proj-card wide">
-     <div class="proj-badge">CASE STUDY</div>
-     <div class="proj-name">Marketing Data Automation System</div>
-   
-     <div class="proj-desc">
-       <strong>Problem:</strong> Marketing data was manually extracted and analyzed in spreadsheets,
-       slowing down decision-making.<br><br>
-   
-       <strong>Solution:</strong> Built an automated pipeline integrating Meta Ads API,
-       processing campaign data and feeding Power BI dashboards.<br><br>
-   
-       <strong>Impact:</strong> Reduced reporting time and enabled faster optimization of campaigns.
-     </div>
-     </div>
-     
-        <div class="proj-chips">
-          <span class="proj-chip">Python</span>
-          <span class="proj-chip">Meta Ads API</span>
-          <span class="proj-chip">Pandas</span>
-          <span class="proj-chip">Power BI</span>
-          <span class="proj-chip">REST API</span>
-          <span class="proj-chip">ETL</span>
-        </div>
-      </div>
+<div class="proj-grid">
 
-     <div class="proj-card">
-     <div class="proj-badge">PRODUCTION</div>
-     <div class="proj-name">Academic Management Platform</div>
-   
-     <div class="proj-desc">
-       <strong>Problem:</strong> Manual student and scheduling management causing inefficiencies.<br><br>
-   
-       <strong>Solution:</strong> Built a full system to manage enrollments, schedules, and workflows.<br><br>
-   
-       <strong>Impact:</strong> Centralized operations and reduced administrative overhead.
-     </div>
-     </div>
-      
-   <div class="proj-chips">
-          <span class="proj-chip">Python</span>
-          <span class="proj-chip">Flask</span>
-          <span class="proj-chip">SQLite</span>
-          <span class="proj-chip">JavaScript</span>
-          <span class="proj-chip">HTML/CSS</span>
-        </div>
-      </div>
+<div class="proj-card">
+<h3>Marketing Data Automation</h3>
+<p>Pipeline using Meta Ads API + Power BI.</p>
+</div>
 
-      <div class="proj-card">
-        <div class="proj-tag">// full-stack · finance</div>
-        <div class="proj-badge">DEPLOYED</div>
-        <div class="proj-tag">// full-stack · deployed</div>
-        <div class="proj-name">Financial Management System</div>
-        <div class="proj-desc">
-          Personal finance tracker with income/expense management, category breakdown,
-          and monthly summary reports. Flask backend + clean web interface.
-        </div>
-        <div class="proj-chips">
-          <span class="proj-chip">Python</span>
-          <span class="proj-chip">Flask</span>
-          <span class="proj-chip">SQL</span>
-          <span class="proj-chip">JavaScript</span>
-        </div>
-      </div>
+<div class="proj-card">
+<h3>Academic Management Platform</h3>
+<p>Institutional production system with Flask.</p>
+</div>
 
-    </div>
-  </div>
+<div class="proj-card">
+<h3>Financial Management System</h3>
+<p>Income and expense control dashboard.</p>
+</div>
+
+</div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-wrap">
-    <div class="sec-label reveal">
-      <div class="sec-num">05</div>
-      <h2 class="sec-title">Education</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="edu-list reveal">
-      <div class="edu-item">
-        <div>
-          <div class="edu-degree">B.Eng. Computer Engineering</div>
-          <div class="edu-school">Universidade Cruzeiro do Sul · Remote</div>
-          <div class="edu-notes">AI, IoT, hardware-software integration. Parallel self-study in systems programming, computer architecture, and applied ML — targeting UIUC ECE MS.</div>
-        </div>
-        <div class="edu-year">2022 – 2027</div>
-      </div>
-      <div class="edu-item">
-        <div>
-          <div class="edu-degree">Full Stack Web Development (400h+)</div>
-          <div class="edu-school">Cod3r · EAD, Brazil</div>
-          <div class="edu-notes">14-course track: JavaScript, Angular, React, Vue, Node.js, MySQL, HTML/CSS, Bootstrap, Webpack.</div>
-        </div>
-        <div class="edu-year">2021 – 2022</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
-  <div class="section-wrap">
-   
-    <h2>Let's build something that actually works</h2>
-
-    <p>
-      If your business is losing time with manual processes or lacks clear data,
-      I can build a system to fix it.
-    </p>
-    <div class="sec-label reveal">
-      <div class="sec-num">06</div>
-      <h2 class="sec-title">Contact</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="contact-layout">
-      <div class="contact-intro reveal">
-        <p style="color:var(--muted);font-family:var(--mono);font-size:12px;margin-top:1.5rem">
-          Response time: &lt; 24h<br/>
-          Timezone: BRT (UTC-3)
-        </p>
-      </div>
-      <div class="contact-links reveal">
-        <a href="mailto:arnaldorochafilho@gmail.com" class="cl-item">
-          <div class="cl-key">email</div>
-          <div class="cl-val">arnaldorochafilho@gmail.com</div>
-        </a>
-        <a href="https://github.com/arnaldorocha/" target="_blank" class="cl-item">
-          <div class="cl-key">github</div>
-          <div class="cl-val">github.com/arnaldorocha/</div>
-        </a>
-        <a href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/" target="_blank" class="cl-item">
-          <div class="cl-key">linkedin</div>
-          <div class="cl-val">linkedin.com/in/arnaldo-rocha-filho-52ba03163</div>
-        </a>
-        <a href="tel:+5542988698860" class="cl-item">
-          <div class="cl-key">whatsapp</div>
-          <div class="cl-val">+55 42 98869-8860</div>
-        </a>
-      </div>
-    </div>
-  </div>
+<h2 id="contactTitle">Contact</h2>
+<p>Email: arnaldorochafilho@gmail.com</p>
+<p>WhatsApp: +55 42 98869-8860</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <span>Arnaldo Rocha Filho — São Mateus do Sul, PR, Brazil</span>
+Arnaldo Rocha Filho — Brazil
 </footer>
 
-<script src="assets/js/main.js"></script>
+ <script src="assets/js/main.js"></script>
 
-</body>
 </html>
