@@ -1,242 +1,898 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Arnaldo Rocha — Computer Engineer</title>
+<meta name="description" content="Computer Engineer Student, Software Engineer focused on backend systems, REST APIs, and data pipelines. Based in Paraná, Brazil."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050507;
+  --bg2:#0c0c10;
+  --bg3:#111118;
+  --line:rgba(255,255,255,0.06);
+  --line2:rgba(255,255,255,0.12);
+  --text:#d4d4dc;
+  --muted:#56566a;
+  --muted2:#8888a0;
+  --green:#39ff8a;
+  --cyan:#00e5ff;
+  --amber:#ffb830;
+  --mono:'JetBrains Mono',monospace;
+  --display:'Bebas Neue',cursive;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  cursor:none;
+  overflow-x:hidden;
+}
 
-  <title>Arnaldo Rocha Filho | Software Engineer</title>
+/* CUSTOM CURSOR */
+#cursor{
+  position:fixed;width:8px;height:8px;
+  border-radius:50%;background:var(--green);
+  pointer-events:none;z-index:9999;
+  transition:transform 0.1s;
+  mix-blend-mode:screen;
+}
+#cursor-ring{
+  position:fixed;width:32px;height:32px;
+  border-radius:50%;border:1px solid rgba(57,255,138,0.4);
+  pointer-events:none;z-index:9998;
+  transition:all 0.15s ease;
+  mix-blend-mode:screen;
+}
 
-  <meta name="description"
-    content="Software Engineer focused on backend systems, REST APIs, data pipelines, and scalable software solutions. Computer Engineering student based in Paraná, Brazil.">
+/* GRID BG */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(57,255,138,0.04) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
 
-  <meta name="keywords"
-    content="software engineer, backend developer, python, flask, fastapi, api, data pipelines, software architecture">
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;height:52px;
+  border-bottom:1px solid var(--line2);
+  background:rgba(5,5,7,0.9);
+  backdrop-filter:blur(16px);
+}
+.nav-id{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:0.12em;color:var(--green);
+  display:flex;align-items:center;gap:0.6rem;
+}
+.nav-id span{color:var(--muted)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:0.1em;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;
+  transition:color 0.2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;
+  bottom:-2px;left:0;width:0;height:1px;
+  background:var(--green);transition:width 0.25s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-right{
+  font-family:var(--mono);font-size:10px;
+  color:var(--muted);letter-spacing:0.05em;
+}
 
-  <meta name="author" content="Arnaldo Rocha Filho">
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 3rem 3rem;
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;width:100%;
+}
+.boot-line{
+  font-family:var(--mono);font-size:11px;
+  color:var(--muted);letter-spacing:0.08em;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 0.5s 0.2s forwards;
+}
+.boot-line em{color:var(--green);font-style:normal}
+.hero-name{
+  font-family:var(--display);
+  font-size:clamp(5rem,14vw,11rem);
+  line-height:0.9;
+  letter-spacing:0.02em;
+  color:#fff;
+  margin-bottom:0.15em;
+  position:relative;
+  opacity:0;animation:fadeUp 0.7s 0.4s forwards;
+}
+.hero-name .stroke{
+  -webkit-text-stroke:1px rgba(255,255,255,0.3);
+  color:transparent;
+}
+.hero-role{
+  font-family:var(--mono);font-size:13px;
+  color:var(--cyan);letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  opacity:0;animation:fadeUp 0.6s 0.7s forwards;
+}
+.hero-desc{
+  max-width:540px;color:var(--muted2);
+  font-size:15px;line-height:1.8;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 0.6s 0.9s forwards;
+}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-actions{
+  display:flex;gap:1rem;flex-wrap:wrap;align-items:center;
+  opacity:0;animation:fadeUp 0.6s 1.1s forwards;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.6rem 1.4rem;border-radius:3px;
+  font-family:var(--mono);font-size:12px;
+  letter-spacing:0.06em;text-decoration:none;
+  transition:all 0.2s;cursor:none;
+}
+.btn-primary{
+  background:var(--green);color:#050507;
+  border:1px solid var(--green);font-weight:700;
+}
+.btn-primary:hover{background:transparent;color:var(--green)}
+.btn-outline{
+  background:transparent;color:var(--muted2);
+  border:1px solid var(--line2);
+}
+.btn-outline:hover{border-color:var(--line2);color:var(--text);background:var(--bg3)}
+.status{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-top:2.5rem;font-family:var(--mono);font-size:11px;
+  color:var(--muted);
+  opacity:0;animation:fadeUp 0.6s 1.3s forwards;
+}
+.pulse{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:blink 1.5s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero-index{
+  position:absolute;right:3rem;bottom:3rem;
+  font-family:var(--mono);font-size:10px;
+  color:var(--muted);letter-spacing:0.1em;
+  display:flex;flex-direction:column;gap:0.3rem;
+  align-items:flex-end;
+}
+.hero-index span{display:block;height:1px;background:var(--line2);width:40px;align-self:flex-end}
 
-  <link rel="stylesheet" href="assets/css/style.css">
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+/* SECTION WRAPPER */
+.section-wrap{
+  max-width:1100px;margin:0 auto;
+  padding:6rem 3rem;
+  position:relative;z-index:1;
+}
+.sec-label{
+  display:flex;align-items:center;gap:1.25rem;
+  margin-bottom:3.5rem;
+}
+.sec-num{
+  font-family:var(--mono);font-size:11px;
+  color:var(--green);letter-spacing:0.12em;
+  border:1px solid rgba(57,255,138,0.25);
+  padding:2px 8px;border-radius:2px;
+}
+.sec-title{
+  font-family:var(--display);
+  font-size:2.8rem;letter-spacing:0.04em;
+  color:#fff;line-height:1;
+}
+.sec-line{flex:1;height:1px;background:var(--line2)}
 
+/* ABOUT */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:start;
+}
+.about-text p{color:var(--muted2);margin-bottom:1rem;line-height:1.85}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-meta{
+  background:var(--bg2);
+  border:1px solid var(--line2);
+  border-radius:4px;
+  overflow:hidden;
+}
+.meta-header{
+  padding:0.75rem 1.25rem;
+  border-bottom:1px solid var(--line2);
+  font-family:var(--mono);font-size:10px;
+  color:var(--muted);letter-spacing:0.1em;
+  background:var(--bg3);
+}
+.meta-row{
+  display:flex;align-items:flex-start;
+  padding:0.65rem 1.25rem;
+  border-bottom:1px solid var(--line);
+  gap:1.5rem;
+}
+.meta-row:last-child{border-bottom:none}
+.meta-key{
+  font-family:var(--mono);font-size:11px;
+  color:var(--muted);min-width:88px;
+  padding-top:2px;
+}
+.meta-val{font-size:13px;color:var(--text)}
+.meta-val a{color:var(--cyan);text-decoration:none}
+.meta-val a:hover{text-decoration:underline}
+
+/* SKILLS */
+.skills-layout{display:flex;flex-direction:column;gap:2rem}
+.skill-group{}
+.sg-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:0.14em;color:var(--muted);
+  text-transform:uppercase;margin-bottom:0.75rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.sg-label::after{content:'';flex:1;height:1px;background:var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:0.5rem}
+.chip{
+  font-family:var(--mono);font-size:11px;
+  padding:4px 10px;border-radius:3px;
+  border:1px solid var(--line2);
+  color:var(--muted2);
+  background:var(--bg2);
+  transition:all 0.2s;cursor:none;
+}
+.chip:hover{border-color:rgba(57,255,138,0.4);color:var(--green);background:rgba(57,255,138,0.05)}
+.chip.hi{border-color:rgba(57,255,138,0.3);color:var(--green);background:rgba(57,255,138,0.06)}
+.chip.cy{border-color:rgba(0,229,255,0.25);color:var(--cyan);background:rgba(0,229,255,0.04)}
+
+/* EXPERIENCE TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  display:grid;grid-template-columns:160px 1fr;
+  position:relative;
+}
+.tl-left{
+  padding:1.5rem 2rem 1.5rem 0;
+  display:flex;flex-direction:column;
+  align-items:flex-end;
+  border-right:1px solid var(--line2);
+  position:relative;
+}
+.tl-left::after{
+  content:'';position:absolute;
+  right:-5px;top:1.85rem;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--line2);
+  transition:border-color 0.2s;
+}
+.tl-item:hover .tl-left::after{border-color:var(--green)}
+.tl-period{
+  font-family:var(--mono);font-size:11px;
+  color:var(--muted);text-align:right;
+  line-height:1.4;
+}
+.tl-right{
+  padding:1.5rem 0 1.5rem 2rem;
+}
+.tl-role{
+  font-size:15px;font-weight:500;
+  color:var(--text);margin-bottom:0.1rem;
+}
+.tl-org{
+  font-family:var(--mono);font-size:11px;
+  color:var(--cyan);margin-bottom:0.75rem;
+  letter-spacing:0.04em;
+}
+.tl-desc{
+  color:var(--muted2);font-size:13.5px;line-height:1.75;
+}
+.tl-desc li{
+  margin-left:1.1rem;margin-bottom:0.25rem;
+  list-style:square;
+}
+.tl-desc li::marker{color:var(--muted)}
+
+/* PROJECTS */
+.proj-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--line2);
+  border:1px solid var(--line2);border-radius:4px;
+  overflow:hidden;
+}
+.proj-card{
+  background:var(--bg);
+  padding:1.75rem;
+  position:relative;overflow:hidden;
+  transition:background 0.2s;
+  cursor:none;
+}
+.proj-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s ease;
+}
+.proj-card:hover{background:var(--bg2)}
+.proj-card:hover::before{transform:scaleX(1)}
+.proj-card.wide{grid-column:span 2}
+.proj-tag{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:0.12em;color:var(--green);
+  text-transform:uppercase;margin-bottom:0.6rem;
+}
+.proj-name{
+  font-size:16px;font-weight:500;
+  color:var(--text);margin-bottom:0.5rem;
+}
+.proj-desc{
+  font-size:13px;color:var(--muted2);
+  line-height:1.7;margin-bottom:1.25rem;
+}
+.proj-chips{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
+.proj-chip{
+  font-family:var(--mono);font-size:10px;
+  padding:2px 7px;border-radius:2px;
+  background:var(--bg3);border:1px solid var(--line);
+  color:var(--muted);
+}
+.proj-link{
+  font-family:var(--mono);font-size:11px;
+  color:var(--muted);text-decoration:none;
+  letter-spacing:0.06em;
+  transition:color 0.2s;
+}
+.proj-link:hover{color:var(--cyan)}
+.proj-badge{
+  position:absolute;top:1.25rem;right:1.25rem;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.1em;
+  padding:2px 8px;border-radius:2px;
+  background:rgba(57,255,138,0.1);
+  border:1px solid rgba(57,255,138,0.25);
+  color:var(--green);
+}
+
+/* EDUCATION */
+.edu-list{display:flex;flex-direction:column;gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:4px;overflow:hidden}
+.edu-item{
+  background:var(--bg);
+  padding:1.5rem 1.75rem;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:2rem;
+  transition:background 0.2s;
+}
+.edu-item:hover{background:var(--bg2)}
+.edu-degree{font-weight:500;color:var(--text);margin-bottom:0.2rem}
+.edu-school{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-bottom:0.5rem;letter-spacing:0.04em}
+.edu-notes{font-size:13px;color:var(--muted2)}
+.edu-year{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;padding-top:3px}
+
+/* CONTACT */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-intro{color:var(--muted2);line-height:1.85;max-width:420px}
+.contact-intro strong{color:var(--text);font-weight:500}
+.contact-intro p{margin-bottom:1rem}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem}
+.cl-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:0.85rem 1.25rem;
+  background:var(--bg2);border:1px solid var(--line2);
+  border-radius:3px;text-decoration:none;
+  transition:all 0.2s;cursor:none;
+}
+.cl-item:hover{border-color:var(--line2);background:var(--bg3);transform:translateX(4px)}
+.cl-key{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--muted);min-width:72px;text-transform:uppercase}
+.cl-val{font-size:13px;color:var(--text)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line2);
+  padding:1.75rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  max-width:1100px;margin:0 auto;
+  font-family:var(--mono);font-size:10px;
+  color:var(--muted);letter-spacing:0.06em;
+  position:relative;z-index:1;
+}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 1.25rem}
+  .nav-links{display:none}
+  .nav-right{display:none}
+  #hero{padding:80px 1.25rem 3rem}
+  .hero-name{font-size:clamp(4rem,20vw,8rem)}
+  .section-wrap{padding:4rem 1.25rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .tl-item{grid-template-columns:1fr}
+  .tl-left{border-right:none;align-items:flex-start;padding:1rem 0 0}
+  .tl-left::after{display:none}
+  .tl-right{padding:0.5rem 0 1.5rem}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card.wide{grid-column:1}
+  .contact-layout{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
+</style>
 </head>
-
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header id="header">
-    <nav id="navbar" class="nav-menu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bx bx-home"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bx bx-user"></i><span>About</span></a></li>
-        <li><a href="#skills"><i class="bx bx-code-alt"></i><span>Skills</span></a></li>
-        <li><a href="#resume"><i class="bx bx-file"></i><span>Resume</span></a></li>
-        <li><a href="#portfolio"><i class="bx bx-briefcase"></i><span>Projects</span></a></li>
-        <li><a href="#services"><i class="bx bx-server"></i><span>Services</span></a></li>
-        <li><a href="#contact"><i class="bx bx-envelope"></i><span>Contact</span></a></li>
-      </ul>
-    </nav>
-  </header>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-  <!-- ================= HERO ================= -->
-  <section id="hero">
-    <div class="container">
+<!-- NAV -->
+<nav>
+  <div class="nav-id">
+    <em>ARF</em>
+    <span>//computer engineer student, software engineer</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#experience">experience</a>
+    <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </div>
+  <div class="nav-right">BR · UTC-3</div>
+</nav>
 
-      <div class="hero-badge">
-        <span class="hb-dot"></span>
-        Open to opportunities
-      </div>
+<!-- HERO -->
+<div id="hero">
+  <div class="boot-line">
+    <em>$</em> ./init --role="backend engineer" --location="Paraná, Brazil" --status=<em>available</em>
+  </div>
+  <h1 class="hero-name">
+    ARNALDO<br>
+    <span class="stroke">ROCHA</span>
+  </h1>
+  <div class="hero-role">Software Engineer · Backend · Systems</div>
+  <p class="hero-desc">
+    Building <strong>production-grade backend systems, REST APIs, and data pipelines</strong>.
+    Computer Engineering student targeting the intersection of
+    <strong>systems programming, computer architecture, and AI infrastructure</strong>.
+  </p>
+  <div class="hero-actions">
+    <a href="mailto:arnaldorochafilho@gmail.com" class="btn btn-primary">→ get in touch</a>
+    <a href="#projects" class="btn btn-outline">view projects</a>
+    <a href="https://github.com/arnaldorocha" target="_blank" class="btn btn-outline">github</a>
+    <a href="https://linkedin.com/in/arnaldorochafilho" target="_blank" class="btn btn-outline">linkedin</a>
+  </div>
+  <div class="status">
+    <div class="pulse"></div>
+    open to junior software / backend engineering roles · freelance available
+  </div>
+  <div class="hero-index">
+    <span></span>
+    v2.0.0
+  </div>
+</div>
 
-      <h1>Arnaldo Rocha Filho</h1>
-
-      <p>Software Engineer · Backend Developer · Python Developer</p>
-
-      <div class="hero-stats">
-
-        <div class="hstat">
-          <h3>4+</h3>
-          <span>Projects shipped</span>
-        </div>
-
-        <div class="hstat">
-          <h3>2+</h3>
-          <span>Years in tech education</span>
-        </div>
-
-        <div class="hstat">
-          <h3>3+</h3>
-          <span>APIs integrated</span>
-        </div>
-
-      </div>
-
-      <div class="social-links">
-        <a href="https://github.com/arnaldorocha" target="_blank" rel="noopener">
-          <i class="bx bxl-github"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/" target="_blank" rel="noopener">
-          <i class="bx bxl-linkedin"></i>
-        </a>
-
-        <a href="https://www.instagram.com/arnaldorochafilho/" target="_blank" rel="noopener">
-          <i class="bx bxl-instagram"></i>
-        </a>
-      </div>
-
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">01</div>
+      <h2 class="sec-title">About</h2>
+      <div class="sec-line"></div>
     </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section id="about">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>About</h2>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="about-image">
-          <img src="assets/img/profile.jpg" alt="Arnaldo Rocha Filho">
-        </div>
-
-        <div class="about-content">
-
-          <h3>Software Engineer & Computer Engineering Student</h3>
-
-          <p>
-            Building production-grade backend systems, REST APIs, and data pipelines.
-            Based in Paraná, Brazil.
-          </p>
-
-          <ul>
-            <li><strong>Email:</strong> arnaldorochafilho@gmail.com</li>
-            <li><strong>Phone:</strong> +55 42 98869-8860</li>
-            <li><strong>Degree:</strong> Computer Engineering (2027)</li>
-            <li><strong>Freelance:</strong> Available</li>
-          </ul>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section id="skills">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="skill-box">
-
-        <div class="progress">
-          <span>Python</span>
-          <div class="progress-bar">
-            <div style="width:90%"></div>
-          </div>
-        </div>
-
-        <div class="progress">
-          <span>Flask / FastAPI</span>
-          <div class="progress-bar">
-            <div style="width:75%"></div>
-          </div>
-        </div>
-
-        <div class="progress">
-          <span>SQL</span>
-          <div class="progress-bar">
-            <div style="width:70%"></div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="proj-card">
-          <h3>Academic Management System</h3>
-          <p>Production system used in educational institution.</p>
-        </article>
-
-        <article class="proj-card">
-          <h3>Meta Ads Analytics System</h3>
-          <p>ETL pipeline integrated with Power BI dashboards.</p>
-        </article>
-
-        <article class="proj-card">
-          <h3>Task API</h3>
-          <p>RESTful API with JWT and PostgreSQL.</p>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-      </div>
-
-      <div class="contact-box">
-
-        <p>Email: 
-          <a href="mailto:arnaldorochafilho@gmail.com">
-            arnaldorochafilho@gmail.com
-          </a>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Computer Engineering student at <strong>Universidade Cruzeiro do Sul</strong> (2022–2027)
+          and <strong>Informatics Instructor at Instituto Correggio</strong>, where I design and
+          deliver technical courses — and shipped an Academic Management System that's in
+          production use there today.
         </p>
-
-        <p>Phone: +55 42 98869-8860</p>
-
-        <p>GitHub:
-          <a href="https://github.com/arnaldorocha" target="_blank" rel="noopener">
-            github.com/arnaldorocha
-          </a>
+        <p>
+          My engineering focus is the intersection of <strong>backend systems, computer
+          architecture, and AI infrastructure</strong>. I'm working through a structured
+          multi-year curriculum covering C, systems programming, networking, and applied ML —
+          with <strong>UIUC ECE MS</strong> as a concrete graduate target.
         </p>
+        <p>
+          Daily Git commits. Real deployments. No tutorial code.
+          I build things that run in the real world.
+        </p>
+      </div>
+      <div class="about-meta reveal">
+        <div class="meta-header">// profile.json</div>
+        <div class="meta-row">
+          <div class="meta-key">location</div>
+          <div class="meta-val">São Mateus do Sul, PR — Brazil</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">email</div>
+          <div class="meta-val"><a href="mailto:arnaldorochafilho@gmail.com">arnaldorochafilho@gmail.com</a></div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">phone</div>
+          <div class="meta-val">+55 42 98869-8860</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">degree</div>
+          <div class="meta-val">B.Eng. Computer Engineering (2027)</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">languages</div>
+          <div class="meta-val">Portuguese (native) · English (intermediate)</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">github</div>
+          <div class="meta-val"><a href="https://github.com/arnaldorocha" target="_blank">github.com/arnaldorocha</a></div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">status</div>
+          <div class="meta-val" style="color:var(--green)">● available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">02</div>
+      <h2 class="sec-title">Skills</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-layout">
+      <div class="skill-group reveal">
+        <div class="sg-label">Core Stack</div>
+        <div class="chips">
+          <span class="chip hi">Python</span>
+          <span class="chip hi">Flask</span>
+          <span class="chip hi">FastAPI</span>
+          <span class="chip hi">REST APIs</span>
+          <span class="chip hi">SQL / SQLite</span>
+          <span class="chip hi">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="sg-label">Data & Analytics</div>
+        <div class="chips">
+          <span class="chip cy">Pandas</span>
+          <span class="chip cy">Power BI</span>
+          <span class="chip cy">Meta Ads API</span>
+          <span class="chip cy">Data Pipelines</span>
+          <span class="chip cy">ETL</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="sg-label">Infrastructure & Tools</div>
+        <div class="chips">
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Linux</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="sg-label">Currently Studying</div>
+        <div class="chips">
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">C / C++</span>
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Systems Programming</span>
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Computer Architecture</span>
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">Networking (Kurose)</span>
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">VHDL / FPGA</span>
+          <span class="chip" style="border-color:rgba(255,184,48,0.3);color:var(--amber)">OSTEP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">03</div>
+      <h2 class="sec-title">Experience</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2023<br>present</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Informatics Instructor</div>
+          <div class="tl-org">Instituto Correggio · São Mateus do Sul, PR</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Designs and delivers technical courses: computing fundamentals, office productivity, programming basics.</li>
+              <li>Built and deployed an <strong style="color:var(--text)">Academic Management System</strong> in production use at the institution — Python, Flask, SQLite.</li>
+              <li>Manages student records, scheduling, and workflows through custom-built internal tooling.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2024</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Production Operator</div>
+          <div class="tl-org">Incepa Roca Brasil · São Mateus do Sul, PR</div>
+          <div class="tl-desc">
+            <ul>
+              <li>Operated hydraulic presses; quality control of ceramic production (thickness, temperature, pressure).</li>
+              <li>Contributed to process automation improvement initiatives.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-left">
+          <div class="tl-period">2013<br>2014</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">IT Technician (Freelance)</div>
+          <div class="tl-org">MEI · São Mateus do Sul, PR</div>
+          <div class="tl-desc">
+            <ul>
+              <li>PC and notebook assembly, repair, and maintenance. On-site network troubleshooting.</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer id="footer">
-    <div class="container">
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">04</div>
+      <h2 class="sec-title">Projects</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="proj-grid reveal">
 
-      <h3>Arnaldo Rocha Filho</h3>
+      <div class="proj-card wide">
+        <div class="proj-badge">PRODUCTION</div>
+        <div class="proj-tag">// featured · data pipeline</div>
+        <div class="proj-name">Meta Ads Analytics System</div>
+        <div class="proj-desc">
+          End-to-end data pipeline integrating the Meta Ads API. Extracts, transforms, and loads campaign
+          performance data into automated Power BI dashboards — replacing manual spreadsheet workflows.
+          Reduced reporting time and improved marketing decision speed.
+        </div>
+        <div class="proj-chips">
+          <span class="proj-chip">Python</span>
+          <span class="proj-chip">Meta Ads API</span>
+          <span class="proj-chip">Pandas</span>
+          <span class="proj-chip">Power BI</span>
+          <span class="proj-chip">REST API</span>
+          <span class="proj-chip">ETL</span>
+        </div>
+      </div>
 
-      <p>Software Engineer · Backend · Data Pipelines</p>
+      <div class="proj-card">
+        <div class="proj-badge">DEPLOYED</div>
+        <div class="proj-tag">// full-stack · deployed</div>
+        <div class="proj-name">Academic Management System</div>
+        <div class="proj-desc">
+          System deployed at Instituto Correggio. Manages students, courses,
+          scheduling, and enrollment. Active production use.
+        </div>
+        <div class="proj-chips">
+          <span class="proj-chip">Python</span>
+          <span class="proj-chip">Flask</span>
+          <span class="proj-chip">SQLite</span>
+          <span class="proj-chip">JavaScript</span>
+          <span class="proj-chip">HTML/CSS</span>
+        </div>
+      </div>
 
-      <div class="social-links">
-        <a href="https://github.com/arnaldorocha" target="_blank" rel="noopener">
-          <i class="bx bxl-github"></i>
+      <div class="proj-card">
+        <div class="proj-tag">// full-stack · finance</div>
+        <div class="proj-badge">DEPLOYED</div>
+        <div class="proj-tag">// full-stack · deployed</div>
+        <div class="proj-name">Financial Management System</div>
+        <div class="proj-desc">
+          Personal finance tracker with income/expense management, category breakdown,
+          and monthly summary reports. Flask backend + clean web interface.
+        </div>
+        <div class="proj-chips">
+          <span class="proj-chip">Python</span>
+          <span class="proj-chip">Flask</span>
+          <span class="proj-chip">SQL</span>
+          <span class="proj-chip">JavaScript</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">05</div>
+      <h2 class="sec-title">Education</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">B.Eng. Computer Engineering</div>
+          <div class="edu-school">Universidade Cruzeiro do Sul · Remote</div>
+          <div class="edu-notes">AI, IoT, hardware-software integration. Parallel self-study in systems programming, computer architecture, and applied ML — targeting UIUC ECE MS.</div>
+        </div>
+        <div class="edu-year">2022 – 2027</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Full Stack Web Development (400h+)</div>
+          <div class="edu-school">Cod3r · EAD, Brazil</div>
+          <div class="edu-notes">14-course track: JavaScript, Angular, React, Vue, Node.js, MySQL, HTML/CSS, Bootstrap, Webpack.</div>
+        </div>
+        <div class="edu-year">2021 – 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="sec-label reveal">
+      <div class="sec-num">06</div>
+      <h2 class="sec-title">Contact</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-intro reveal">
+        <p>Looking for <strong>junior backend / software engineering roles</strong>. Remote or hybrid in Paraná, Brazil.</p>
+        <p>Also open to freelance projects and collaboration on interesting <strong>systems or data engineering</strong> problems.</p>
+        <p style="color:var(--muted);font-family:var(--mono);font-size:12px;margin-top:1.5rem">
+          Response time: &lt; 24h<br/>
+          Timezone: BRT (UTC-3)
+        </p>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:arnaldorochafilho@gmail.com" class="cl-item">
+          <div class="cl-key">email</div>
+          <div class="cl-val">arnaldorochafilho@gmail.com</div>
+        </a>
+        <a href="https://github.com/arnaldorocha" target="_blank" class="cl-item">
+          <div class="cl-key">github</div>
+          <div class="cl-val">github.com/arnaldorocha</div>
+        </a>
+        <a href="https://linkedin.com/in/arnaldorochafilho" target="_blank" class="cl-item">
+          <div class="cl-key">linkedin</div>
+          <div class="cl-val">linkedin.com/in/arnaldorochafilho</div>
+        </a>
+        <a href="tel:+5542988698860" class="cl-item">
+          <div class="cl-key">whatsapp</div>
+          <div class="cl-val">+55 42 98869-8860</div>
         </a>
       </div>
-
-      <small>© 2026 All Rights Reserved</small>
-
     </div>
-  </footer>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <span>Arnaldo Rocha Filho — São Mateus do Sul, PR, Brazil</span>
+  <span>built from scratch · 2025</span>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=(mx-4)+'px';
+  cursor.style.top=(my-4)+'px';
+});
+function animRing(){
+  rx+=(mx-rx-16)*0.12;
+  ry+=(my-ry-16)*0.12;
+  ring.style.left=rx+'px';
+  ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.proj-card,.chip,.cl-item,.edu-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.transform='scale(2.5)';
+    ring.style.transform='scale(1.4)';
+    ring.style.borderColor='rgba(57,255,138,0.7)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.transform='scale(1)';
+    ring.style.transform='scale(1)';
+    ring.style.borderColor='rgba(57,255,138,0.4)';
+  });
+});
+
+// SCROLL REVEAL
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*60);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+
+// BOOT SEQUENCE TEXT
+const bootLine=document.querySelector('.boot-line');
+const text=bootLine.innerHTML;
+bootLine.innerHTML='';
+let idx=0;
+function typeChar(){
+  if(idx<text.length){
+    bootLine.innerHTML=text.slice(0,idx+1);
+    idx++;
+    setTimeout(typeChar,idx<4?0:12);
+  }
+}
+setTimeout(typeChar,300);
+
+// NAV ACTIVE STATE
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY>=s.offsetTop-100) current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+current?'var(--text)':'';
+  });
+},{ passive:true });
+</script>
 </body>
 </html>
