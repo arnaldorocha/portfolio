@@ -1,4 +1,53 @@
 
+const langBtn = document.getElementById('langBtn');
+const themeBtn = document.getElementById('themeBtn');
+
+let pt = false;
+
+langBtn.onclick = () => {
+pt = !pt;
+
+if(pt){
+document.getElementById('heroTitle').innerHTML =
+'SISTEMAS QUE<br><span class="stroke">GERAM RESULTADO</span>';
+
+document.getElementById('heroRole').innerText =
+'Backend · Automação · Dados';
+
+document.getElementById('heroDesc').innerText =
+'Construo sistemas que automatizam operações e eliminam trabalho manual.';
+
+document.getElementById('aboutTitle').innerText='Sobre';
+document.getElementById('aboutText').innerText=
+'Projeto sistemas backend que substituem processos manuais e melhoram decisões.';
+
+document.getElementById('contactTitle').innerText='Contato';
+
+langBtn.innerText='EN';
+}else{
+document.getElementById('heroTitle').innerHTML =
+'SYSTEMS THAT<br><span class="stroke">MAKE YOU MONEY</span>';
+
+document.getElementById('heroRole').innerText =
+'Backend Systems · Automation · Data Pipelines';
+
+document.getElementById('heroDesc').innerText =
+'I build systems that automate operations, track revenue, and eliminate manual work.';
+
+document.getElementById('aboutTitle').innerText='About';
+document.getElementById('aboutText').innerText=
+'I design and build backend systems that replace manual workflows and improve decisions.';
+
+document.getElementById('contactTitle').innerText='Contact';
+
+langBtn.innerText='PT';
+}
+};
+
+themeBtn.onclick = () => {
+document.body.classList.toggle('light');
+};
+
 // CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
