@@ -1,4 +1,3 @@
-
 // CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
