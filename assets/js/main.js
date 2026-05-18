@@ -1,68 +1,81 @@
-// CURSOR
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cursor.style.left=(mx-4)+'px';
-  cursor.style.top=(my-4)+'px';
-});
-function animRing(){
-  rx+=(mx-rx-16)*0.12;
-  ry+=(my-ry-16)*0.12;
-  ring.style.left=rx+'px';
-  ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-}
-animRing();
-document.querySelectorAll('a,button,.proj-card,.chip,.cl-item,.edu-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    cursor.style.transform='scale(2.5)';
-    ring.style.transform='scale(1.4)';
-    ring.style.borderColor='rgba(57,255,138,0.7)';
-  });
-  el.addEventListener('mouseleave',()=>{
-    cursor.style.transform='scale(1)';
-    ring.style.transform='scale(1)';
-    ring.style.borderColor='rgba(57,255,138,0.4)';
-  });
-});
+/* main.js */
 
-// SCROLL REVEAL
-const revealEls=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add('visible'),i*60);
-      io.unobserve(e.target);
+(function () {
+  'use strict';
+
+  /* ─── CUSTOM CURSOR ──────────────────────── */
+
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursor-ring');
+
+  if (cursor && ring && window.matchMedia('(pointer: fine)').matches) {
+    let rx = 0, ry = 0, tx = 0, ty = 0;
+
+    document.addEventListener('mousemove', e => {
+      tx = e.clientX;
+      ty = e.clientY;
+      cursor.style.left = tx + 'px';
+      cursor.style.top  = ty + 'px';
+    });
+
+    function tick() {
+      rx += (tx - rx) * 0.14;
+      ry += (ty - ry) * 0.14;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(tick);
     }
-  });
-},{threshold:0.1});
-revealEls.forEach(el=>io.observe(el));
+    tick();
 
-// BOOT SEQUENCE TEXT
-const bootLine=document.querySelector('.boot-line');
-const text=bootLine.innerHTML;
-bootLine.innerHTML='';
-let idx=0;
-function typeChar(){
-  if(idx<text.length){
-    bootLine.innerHTML=text.slice(0,idx+1);
-    idx++;
-    setTimeout(typeChar,idx<4?0:12);
+    /* Hover state */
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
   }
-}
-setTimeout(typeChar,300);
 
-// NAV ACTIVE STATE
-const sections=document.querySelectorAll('section[id]');
-const navLinks=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(s=>{
-    if(window.scrollY>=s.offsetTop-100) current=s.id;
+  /* ─── SCROLL REVEAL ──────────────────────── */
+
+  const revealEls = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      setTimeout(() => entry.target.classList.add('is-visible'), i * 75);
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ─── ACTIVE NAV LINK ────────────────────── */
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+
+  function updateActiveLink() {
+    const scrollY = window.scrollY + 140;
+    let current = '';
+
+    sections.forEach(sec => {
+      if (scrollY >= sec.offsetTop) current = sec.id;
+    });
+
+    navLinks.forEach(link => {
+      const isActive = link.getAttribute('href') === '#' + current;
+      link.classList.toggle('active', isActive);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  /* ─── HERO STAGGER ON LOAD ───────────────── */
+
+  const heroEls = document.querySelectorAll('#hero .reveal');
+  heroEls.forEach((el, i) => {
+    setTimeout(() => el.classList.add('is-visible'), 200 + i * 120);
   });
-  navLinks.forEach(a=>{
-    a.style.color=a.getAttribute('href')==='#'+current?'var(--text)':'';
-  });
-},{ passive:true });
+
+})();
+    
