@@ -13,9 +13,8 @@
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap"
     rel="stylesheet"
   />
 
@@ -26,10 +25,10 @@
 
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
+  <div class="glow-bg"></div>
 
   <!-- NAV -->
   <nav>
-
     <div class="nav-id">
       <em>ARF</em>
       <span>// backend engineering · ai systems</span>
@@ -43,531 +42,362 @@
       <a href="#contact">contact</a>
     </div>
 
-    <div class="nav-right">
-      BR · UTC-3
-    </div>
-
+    <div class="nav-right">BR · UTC-3</div>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
+  <!-- MAIN CONTENT -->
+  <main>
 
-    <h1 class="hero-name">
-      BACKEND<br />
-      <span class="stroke">SYSTEMS ENGINEER</span>
-    </h1>
+    <!-- HERO -->
+    <section id="hero">
 
-    <div class="hero-role">
-      Computer Engineering · Backend Systems · AI Engineering
-    </div>
+      <h1 class="hero-name reveal">
+        BACKEND<br />
+        <span class="stroke">SYSTEMS ENGINEER</span>
+      </h1>
 
-    <p class="hero-desc">
-      Building backend platforms, automation systems, APIs, and AI-powered operational tools focused on production-ready engineering and scalable architectures.
-    </p>
-
-    <div class="hero-actions">
-
-      <a href="#projects" class="btn btn-primary">
-        → explore projects
-      </a>
-
-      <a
-        href="https://github.com/arnaldorocha"
-        target="_blank"
-        class="btn btn-outline"
-      >
-        github
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/"
-        target="_blank"
-        class="btn btn-outline"
-      >
-        linkedin
-      </a>
-
-    </div>
-
-    <div class="status">
-      <div class="pulse"></div>
-      currently building production systems & studying machine learning engineering
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-
-    <div class="section-wrap">
-
-      <div class="sec-label reveal">
-
-        <div class="sec-num">01</div>
-
-        <h2 class="sec-title">
-          About
-        </h2>
-
-        <div class="sec-line"></div>
-
+      <div class="hero-role reveal">
+        Computer Engineering · Backend Systems · AI Engineering
       </div>
 
-      <div class="about-grid">
+      <p class="hero-desc reveal">
+        Building backend platforms, automation systems, APIs, and
+        AI-powered operational tools focused on production-ready
+        engineering and scalable architectures.
+      </p>
 
-        <div class="about-text reveal">
-
-          <p>
-            I develop backend systems, APIs, automation workflows, and AI-assisted operational platforms focused on real-world deployment and maintainable engineering.
-          </p>
-
-          <p>
-            My work involves infrastructure-oriented thinking, service integrations, data workflows, backend reliability, and production-ready development practices.
-          </p>
-
-          <p>
-            Currently focused on distributed systems, machine learning engineering, Linux environments, Dockerized services, and scalable backend architecture.
-          </p>
-
-        </div>
-
-        <div class="about-meta reveal">
-
-          <div class="meta-header">
-            // profile.json
-          </div>
-
-          <div class="meta-row">
-            <div class="meta-key">location</div>
-            <div class="meta-val">Brazil</div>
-          </div>
-
-          <div class="meta-row">
-            <div class="meta-key">degree</div>
-            <div class="meta-val">B.Eng. Computer Engineering</div>
-          </div>
-
-          <div class="meta-row">
-            <div class="meta-key">focus</div>
-            <div class="meta-val">Backend · AI Systems · Automation</div>
-          </div>
-
-          <div class="meta-row">
-            <div class="meta-key">github</div>
-
-            <div class="meta-val">
-              <a href="https://github.com/arnaldorocha" target="_blank">
-                github.com/arnaldorocha
-              </a>
-            </div>
-
-          </div>
-
-          <div class="meta-row">
-            <div class="meta-key">email</div>
-
-            <div class="meta-val">
-              <a href="mailto:arnaldorochafilho@gmail.com">
-                arnaldorochafilho@gmail.com
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">→ explore projects</a>
+        <a href="https://github.com/arnaldorocha" target="_blank" class="btn btn-outline">github</a>
+        <a href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/" target="_blank" class="btn btn-outline">linkedin</a>
       </div>
 
-    </div>
-
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-
-    <div class="section-wrap">
-
-      <div class="sec-label reveal">
-
-        <div class="sec-num">02</div>
-
-        <h2 class="sec-title">
-          Skills
-        </h2>
-
-        <div class="sec-line"></div>
-
+      <div class="status reveal">
+        <div class="pulse"></div>
+        currently building production systems &amp; studying machine learning engineering
       </div>
 
-      <div class="skills-layout">
+    </section>
 
-        <div class="skill-group reveal">
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-wrap">
 
-          <div class="sg-label">
-            Backend Engineering
+        <div class="sec-label reveal">
+          <div class="sec-num">01</div>
+          <h2 class="sec-title">About</h2>
+          <div class="sec-line"></div>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-text reveal">
+            <p>
+              I develop backend systems, APIs, automation workflows, and
+              AI-assisted operational platforms focused on real-world
+              deployment and maintainable engineering.
+            </p>
+            <p>
+              My work involves infrastructure-oriented thinking, service
+              integrations, data workflows, backend reliability, and
+              production-ready development practices.
+            </p>
+            <p>
+              Currently focused on distributed systems, machine learning
+              engineering, Linux environments, Dockerized services, and
+              scalable backend architecture.
+            </p>
           </div>
 
-          <div class="chips">
-            <span class="chip hi">Python</span>
-            <span class="chip hi">FastAPI</span>
-            <span class="chip hi">Flask</span>
-            <span class="chip hi">REST APIs</span>
-            <span class="chip hi">PostgreSQL</span>
-            <span class="chip hi">SQL</span>
+          <div class="about-meta reveal">
+            <div class="meta-header">// profile.json</div>
+
+            <div class="meta-row">
+              <div class="meta-key">location</div>
+              <div class="meta-val">Brazil · São Mateus do Sul, PR</div>
+            </div>
+
+            <div class="meta-row">
+              <div class="meta-key">degree</div>
+              <div class="meta-val">B.Eng. Computer Engineering</div>
+            </div>
+
+            <div class="meta-row">
+              <div class="meta-key">focus</div>
+              <div class="meta-val">Backend · AI Systems · Automation</div>
+            </div>
+
+            <div class="meta-row">
+              <div class="meta-key">github</div>
+              <div class="meta-val">
+                <a href="https://github.com/arnaldorocha" target="_blank">
+                  github.com/arnaldorocha
+                </a>
+              </div>
+            </div>
+
+            <div class="meta-row">
+              <div class="meta-key">email</div>
+              <div class="meta-val">
+                <a href="mailto:arnaldorochafilho@gmail.com">
+                  arnaldorochafilho@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
-
-        <div class="skill-group reveal">
-
-          <div class="sg-label">
-            AI & Data Systems
-          </div>
-
-          <div class="chips">
-            <span class="chip cy">Machine Learning</span>
-            <span class="chip cy">Pandas</span>
-            <span class="chip cy">ETL</span>
-            <span class="chip cy">Data Pipelines</span>
-            <span class="chip cy">LLM APIs</span>
-            <span class="chip cy">Automation</span>
-          </div>
-
-        </div>
-
-        <div class="skill-group reveal">
-
-          <div class="sg-label">
-            Infrastructure
-          </div>
-
-          <div class="chips">
-            <span class="chip">Docker</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Git/GitHub</span>
-            <span class="chip">CI/CD</span>
-            <span class="chip">Deployment</span>
-          </div>
-
-        </div>
-
       </div>
+    </section>
 
-    </div>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-wrap">
 
-  </section>
+        <div class="sec-label reveal">
+          <div class="sec-num">02</div>
+          <h2 class="sec-title">Skills</h2>
+          <div class="sec-line"></div>
+        </div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
+        <div class="skills-layout">
 
-    <div class="section-wrap">
-
-      <div class="sec-label reveal">
-
-        <div class="sec-num">03</div>
-
-        <h2 class="sec-title">
-          Projects
-        </h2>
-
-        <div class="sec-line"></div>
-
-      </div>
-
-      <div class="proj-grid reveal">
-
-        <!-- PROJECT -->
-        <div class="proj-card wide">
-
-          <div class="proj-badge">
-            PRODUCTION SYSTEM
+          <div class="skill-group reveal">
+            <div class="sg-label">Backend Engineering</div>
+            <div class="chips">
+              <span class="chip hi">Python</span>
+              <span class="chip hi">FastAPI</span>
+              <span class="chip hi">Flask</span>
+              <span class="chip hi">REST APIs</span>
+              <span class="chip hi">PostgreSQL</span>
+              <span class="chip hi">SQL</span>
+            </div>
           </div>
 
-          <a
-            class="proj-name"
-            href="https://siga-correggio.pages.dev"
-            target="_blank"
-          >
-            Correggio Management Platform
-          </a>
-
-          <div class="proj-desc">
-
-            Academic operations platform designed for scheduling,
-            student management, administrative workflows,
-            and operational automation.
-
-            Built for real institutional usage with production-oriented backend architecture.
-
+          <div class="skill-group reveal">
+            <div class="sg-label">AI &amp; Data Systems</div>
+            <div class="chips">
+              <span class="chip cy">Machine Learning</span>
+              <span class="chip cy">Pandas</span>
+              <span class="chip cy">ETL</span>
+              <span class="chip cy">Data Pipelines</span>
+              <span class="chip cy">LLM APIs</span>
+              <span class="chip cy">Automation</span>
+            </div>
           </div>
 
-          <div class="proj-chips">
-
-            <span class="proj-chip">Python</span>
-            <span class="proj-chip">Flask</span>
-            <span class="proj-chip">PostgreSQL</span>
-            <span class="proj-chip">Docker</span>
-            <span class="proj-chip">JavaScript</span>
-
-          </div>
-
-          <div class="proj-image">
-            <img
-              src="assets/img/portfolio/SigaCorregioDashboard.png"
-              alt="Correggio Dashboard"
-            />
+          <div class="skill-group reveal">
+            <div class="sg-label">Infrastructure</div>
+            <div class="chips">
+              <span class="chip">Docker</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Git / GitHub</span>
+              <span class="chip">CI/CD</span>
+              <span class="chip">Deployment</span>
+            </div>
           </div>
 
         </div>
+      </div>
+    </section>
 
-        <!-- PROJECT -->
-        <div class="proj-card">
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-wrap">
 
-          <div class="proj-badge">
-            AI PLATFORM
+        <div class="sec-label reveal">
+          <div class="sec-num">03</div>
+          <h2 class="sec-title">Projects</h2>
+          <div class="sec-line"></div>
+        </div>
+
+        <div class="proj-grid reveal">
+
+          <!-- Featured -->
+          <div class="proj-card wide">
+            <div class="proj-badge">PRODUCTION SYSTEM</div>
+
+            <a class="proj-name" href="https://siga-correggio.pages.dev" target="_blank">
+              Correggio Management Platform
+            </a>
+
+            <div class="proj-desc">
+              Academic operations platform designed for scheduling,
+              student management, administrative workflows, and operational
+              automation. Built for real institutional usage with
+              production-oriented backend architecture.
+            </div>
+
+            <div class="proj-chips">
+              <span class="proj-chip">Python</span>
+              <span class="proj-chip">Flask</span>
+              <span class="proj-chip">PostgreSQL</span>
+              <span class="proj-chip">Docker</span>
+              <span class="proj-chip">JavaScript</span>
+            </div>
+
+            <div class="proj-image">
+              <img
+                src="assets/img/portfolio/SigaCorregioDashboard.png"
+                alt="Correggio Dashboard"
+              />
+            </div>
           </div>
 
-          <a
-            class="proj-name"
-            href="https://adpulse-b7e.pages.dev/"
-            target="_blank"
-          >
-            AdPulse Analytics
-          </a>
+          <!-- AdPulse -->
+          <div class="proj-card">
+            <div class="proj-badge">AI PLATFORM</div>
 
-          <div class="proj-desc">
+            <a class="proj-name" href="https://adpulse-b7e.pages.dev/" target="_blank">
+              AdPulse Analytics
+            </a>
 
-            AI-assisted analytics platform integrating advertising APIs,
-            automated reporting pipelines, and operational dashboards.
+            <div class="proj-desc">
+              AI-assisted analytics platform integrating advertising APIs,
+              automated reporting pipelines, and operational dashboards.
+            </div>
 
+            <div class="proj-chips">
+              <span class="proj-chip">FastAPI</span>
+              <span class="proj-chip">Pandas</span>
+              <span class="proj-chip">PostgreSQL</span>
+              <span class="proj-chip">LLM APIs</span>
+            </div>
+
+            <div class="proj-image small">
+              <img
+                src="assets/img/portfolio/AdPulse.png"
+                alt="AdPulse Analytics Dashboard"
+              />
+            </div>
           </div>
 
-          <div class="proj-chips">
+          <!-- Jarvis -->
+          <div class="proj-card">
+            <div class="proj-badge">AUTOMATION TOOL</div>
 
-            <span class="proj-chip">FastAPI</span>
-            <span class="proj-chip">Pandas</span>
-            <span class="proj-chip">PostgreSQL</span>
-            <span class="proj-chip">LLM APIs</span>
+            <div class="proj-name">Jarvis CLI</div>
 
-          </div>
+            <div class="proj-desc">
+              AI-powered command-line assistant focused on workflow
+              automation, developer tooling, and orchestration systems.
+            </div>
 
-          <div class="proj-image small">
-            <img
-              src="assets/img/portfolio/AdPulse.png"
-              alt="AdPulse Analytics Dashboard"
-            />
+            <div class="proj-chips">
+              <span class="proj-chip">Python</span>
+              <span class="proj-chip">CLI</span>
+              <span class="proj-chip">Automation</span>
+              <span class="proj-chip">APIs</span>
+            </div>
+
+            <div class="proj-image small">
+              <img
+                src="assets/img/portfolio/JarvisCLI.png"
+                alt="Jarvis CLI Project"
+              />
+            </div>
           </div>
 
         </div>
+      </div>
+    </section>
 
-        <!-- PROJECT -->
-        <div class="proj-card">
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-wrap">
 
-          <div class="proj-badge">
-            AUTOMATION TOOL
-          </div>
-
-          <div class="proj-name">
-            Jarvis CLI
-          </div>
-
-          <div class="proj-desc">
-
-            AI-powered command-line assistant focused on workflow automation,
-            developer tooling, and orchestration systems.
-
-          </div>
-
-          <div class="proj-chips">
-
-            <span class="proj-chip">Python</span>
-            <span class="proj-chip">CLI</span>
-            <span class="proj-chip">Automation</span>
-            <span class="proj-chip">APIs</span>
-
-          </div>
-
-          <div class="proj-image small">
-            <img
-              src="assets/img/portfolio/JarvisCLI.png"
-              alt="Jarvis CLI Project"
-            />
-          </div>
-
+        <div class="sec-label reveal">
+          <div class="sec-num">04</div>
+          <h2 class="sec-title">Experience</h2>
+          <div class="sec-line"></div>
         </div>
 
-      </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
 
-    </div>
+            <div class="tl-left">
+              <div class="tl-period">
+                2025<br />present
+              </div>
+            </div>
 
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-
-    <div class="section-wrap">
-
-      <div class="sec-label reveal">
-
-        <div class="sec-num">04</div>
-
-        <h2 class="sec-title">
-          Experience
-        </h2>
-
-        <div class="sec-line"></div>
-
-      </div>
-
-      <div class="timeline">
-
-        <div class="tl-item reveal">
-
-          <div class="tl-left">
-
-            <div class="tl-period">
-              2025<br />
-              present
+            <div class="tl-right">
+              <div class="tl-role">Technical Instructor &amp; Systems Developer</div>
+              <div class="tl-org">Instituto Correggio · Brazil</div>
+              <div class="tl-desc">
+                <ul>
+                  <li>
+                    Developed and deployed academic operational systems
+                    and internal automation platforms.
+                  </li>
+                  <li>
+                    Built backend workflows focused on scheduling,
+                    operational management, and process organization.
+                  </li>
+                  <li>
+                    Delivered technical instruction in computing
+                    fundamentals and programming logic.
+                  </li>
+                </ul>
+              </div>
             </div>
 
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="tl-right">
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-wrap">
 
-            <div class="tl-role">
-              Technical Instructor & Systems Developer
-            </div>
+        <div class="sec-label reveal">
+          <div class="sec-num">05</div>
+          <h2 class="sec-title">Contact</h2>
+          <div class="sec-line"></div>
+        </div>
 
-            <div class="tl-org">
-              Instituto Correggio · Brazil
-            </div>
+        <div class="contact-layout">
 
-            <div class="tl-desc">
-
-              <ul>
-
-                <li>
-                  Developed and deployed academic operational systems and internal automation platforms.
-                </li>
-
-                <li>
-                  Built backend workflows focused on scheduling, operational management, and process organization.
-                </li>
-
-                <li>
-                  Delivered technical instruction in computing fundamentals and programming logic.
-                </li>
-
-              </ul>
-
-            </div>
-
+          <div class="contact-intro reveal">
+            <h2>
+              Open to backend engineering<br />and AI systems opportunities
+            </h2>
+            <p>
+              Interested in backend platforms, automation infrastructure,
+              AI applications, and production engineering environments.
+            </p>
           </div>
 
+          <div class="contact-links reveal">
+
+            <a href="mailto:arnaldorochafilho@gmail.com" class="cl-item">
+              <div class="cl-key">email</div>
+              <div class="cl-val">arnaldorochafilho@gmail.com</div>
+            </a>
+
+            <a href="https://github.com/arnaldorocha" target="_blank" class="cl-item">
+              <div class="cl-key">github</div>
+              <div class="cl-val">github.com/arnaldorocha</div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/" target="_blank" class="cl-item">
+              <div class="cl-key">linkedin</div>
+              <div class="cl-val">linkedin.com/in/arnaldo-rocha-filho</div>
+            </a>
+
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-
-    <div class="section-wrap">
-
-      <div class="sec-label reveal">
-
-        <div class="sec-num">05</div>
-
-        <h2 class="sec-title">
-          Contact
-        </h2>
-
-        <div class="sec-line"></div>
-
-      </div>
-
-      <div class="contact-layout">
-
-        <div class="contact-intro reveal">
-
-          <h2>
-            Open to backend engineering and AI systems opportunities
-          </h2>
-
-          <p>
-            Interested in backend platforms, automation infrastructure,
-            AI applications, and production engineering environments.
-          </p>
-
-        </div>
-
-        <div class="contact-links reveal">
-
-          <a href="mailto:arnaldorochafilho@gmail.com" class="cl-item">
-
-            <div class="cl-key">
-              email
-            </div>
-
-            <div class="cl-val">
-              arnaldorochafilho@gmail.com
-            </div>
-
-          </a>
-
-          <a
-            href="https://github.com/arnaldorocha"
-            target="_blank"
-            class="cl-item"
-          >
-
-            <div class="cl-key">
-              github
-            </div>
-
-            <div class="cl-val">
-              github.com/arnaldorocha
-            </div>
-
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/arnaldo-rocha-filho-52ba03163/"
-            target="_blank"
-            class="cl-item"
-          >
-
-            <div class="cl-key">
-              linkedin
-            </div>
-
-            <div class="cl-val">
-              linkedin.com/in/arnaldo-rocha-filho
-            </div>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  </main>
 
   <footer>
-
-    <span>
-      Arnaldo Rocha Filho — Backend & AI Systems Engineer
-    </span>
-
+    <span>Arnaldo Rocha Filho — Backend &amp; AI Systems Engineer</span>
   </footer>
 
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
